@@ -1,6 +1,6 @@
 class Solution:
     @staticmethod
-    def totalBalance(x):
+    def totalBalanceCheck(x):
         sum_list = 0
         for i in x:
             sum_list += i
@@ -9,6 +9,6 @@ class Solution:
     def maximumWealth(self, accounts):
         res = []
         for i in accounts:
-            res.append(self.totalBalance(i))
+            res.append(self.totalBalanceCheck(i))
         res.sort()
         return res[-1]
