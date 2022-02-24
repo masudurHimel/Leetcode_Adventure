@@ -5,23 +5,9 @@
 #         self.next = next
 class Solution:
     def deleteDuplicates(self, head):
-        if not head:
-            return None
-        res = [head.val]
-        head = head.next
+        base = head
         while head:
-            if res[-1] != head.val:
-                res.append(head.val)
+            while head.next and head.next.val == head.val:
+                head.next = head.next.next
             head = head.next
-
-        flag = 0
-        for i in res:
-            if flag == 0:
-                res_head = ListNode(val=i)
-                tmp_head = res_head
-                flag = 1
-            else:
-                _ = ListNode(val=i)
-                tmp_head.next = _
-                tmp_head = _
-        return res_head
+        return base
