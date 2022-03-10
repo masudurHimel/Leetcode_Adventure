@@ -1,27 +1,18 @@
 type ParkingSystem struct {
-	big int
-    medium int
-    small int
+    left [3]int
 }
 
 func Constructor(big int, medium int, small int) ParkingSystem {
-    return ParkingSystem{big, medium, small}
+    return ParkingSystem{[3]int{big, medium, small}}
 }
 
 
 func (this *ParkingSystem) AddCar(carType int) bool {
-    if carType == 1 && this.big > 0{
-        this.big--
+    if this.left[carType -1] > 0{
+        this.left[carType-1]--
         return true
-    }else if carType == 2 && this.medium > 0{
-        this.medium--
-        return true
-    }else if carType == 3 && this.small > 0{
-        this.small--
-        return true
-    }else{
-        return false
     }
+    return false
 }
 
 
