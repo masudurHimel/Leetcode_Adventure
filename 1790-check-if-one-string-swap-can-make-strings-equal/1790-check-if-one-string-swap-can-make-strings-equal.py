@@ -5,10 +5,6 @@ class Solution:
         if s1 == s2:
             return True
         
-        diff_list = []
-        
-        for i in range(len(s1)):
-            if s1[i] != s2[i]:
-                diff_list.append(s1[i])
+        diff_list = [s1[i] for i in range(len(s1)) if s1[i] != s2[i]]
         
         return len(diff_list) == 2
