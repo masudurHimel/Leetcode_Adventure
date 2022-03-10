@@ -4,7 +4,12 @@ class Solution:
             return False
         if s1 == s2:
             return True
+
+        count = 0
+        for i in range(len(s1)):
+            if s1[i] != s2[i]:
+                count += 1
+            if count > 2:
+                return False
         
-        diff_list = [s1[i] for i in range(len(s1)) if s1[i] != s2[i]]
-        
-        return len(diff_list) == 2
+        return True
