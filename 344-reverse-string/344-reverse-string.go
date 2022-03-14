@@ -1,7 +1,8 @@
 func reverseString(s []byte)  {
-    res := make([]byte, len(s))
-    for i,j := len(s)-1, 0;i>=0;i,j = i-1,j+1{
-        res[j] = s[i]
+    len_s := len(s) - 1
+    
+    for i:=0;i<=len_s/2;i++{
+        s[i], s[len_s-i] = s[len_s-i], s[i]
     }
-    copy(s, res)
+    
 }
