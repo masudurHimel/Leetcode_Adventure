@@ -1,7 +1,8 @@
-import numpy as np
 class Solution:
     def fib(self, n: int) -> int:
-        F1 = np.array([[1, 1], [1, 0]])
-        eigenvalues, eigenvectors = np.linalg.eig(F1)
-        Fn = eigenvectors @ np.diag(eigenvalues ** n) @ eigenvectors.T
-        return int(np.rint(Fn[0, 1]))
+        if n <=1:
+            return n
+        res = [0,1]
+        for i in range(2, n + 1):
+            res.append(res[i - 1] + res[i - 2])
+        return res[-1]
