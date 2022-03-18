@@ -1,8 +1,12 @@
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
-        target_val = 0
-        for i in digits:
-            target_val = target_val * 10 + i
-        target_val = list(str(target_val+1))
-        return target_val
+        for i in range(len(digits)-1, -1, -1):
+            if digits[i] == 9:
+                digits[i] = 0
+            else:
+                digits[i] += 1
+                return digits
+            
+        digits = [1] + digits
+        return digits
         
