@@ -1,10 +1,7 @@
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
-        res = []
         for i in range(len(matrix)):
-            _ = []
-            for j in range(len(matrix)-1, -1, -1):
-                _.append(matrix[j][i])
-            res.append(_)
-        matrix[:] = res
+            for j in range(i+1, len(matrix)):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+            matrix[i] = matrix[i][::-1]
         
