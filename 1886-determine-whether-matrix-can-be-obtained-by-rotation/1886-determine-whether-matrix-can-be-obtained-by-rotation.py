@@ -5,7 +5,7 @@ class Solution:
             return True
         
 
-        for i in range(3):
+        for p in range(3):
             for i in range(len(mat)):
                 for j in range(i+1, len(mat)):
                     mat[i][j], mat[j][i] = mat[j][i], mat[i][j]
