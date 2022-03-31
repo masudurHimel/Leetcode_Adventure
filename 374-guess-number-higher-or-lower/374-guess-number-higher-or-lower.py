@@ -13,7 +13,7 @@ class Solution:
             _ = guess(mid)
             if _ == 0:
                 return mid
-            if _ == 1:
+            elif _ == 1:
                 lo = mid +1
             else:
                 hi = mid -1
