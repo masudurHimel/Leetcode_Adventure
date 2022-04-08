@@ -7,7 +7,6 @@ class KthLargest:
 
     def add(self, val: int) -> int:
         self.lst.add(val)
-        # self.lst.sort()
         return self.lst[-self.k]
         
 
