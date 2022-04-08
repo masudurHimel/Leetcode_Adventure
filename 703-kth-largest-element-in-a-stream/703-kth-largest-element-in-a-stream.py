@@ -1,11 +1,13 @@
+from sortedcontainers import SortedList
+
 class KthLargest:
 
     def __init__(self, k: int, nums: List[int]):
-        self.k , self.lst = k, sorted(nums)
+        self.k , self.lst = k, SortedList(nums)
 
     def add(self, val: int) -> int:
-        self.lst.append(val)
-        self.lst.sort()
+        self.lst.add(val)
+        # self.lst.sort()
         return self.lst[-self.k]
         
 
