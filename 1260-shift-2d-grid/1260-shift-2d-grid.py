@@ -5,14 +5,11 @@ class Solution:
         for i in grid:
             for j in i:
                 target_list.append(j)
-        
         if k > len(target_list):
             k = k%len(target_list)
-            
         res = target_list[-k:] + target_list[:-k]
         res_list = []
         count = 0
-        print(target_list, res)
         for i in range(m):
             temp = []
             for j in range(n):
