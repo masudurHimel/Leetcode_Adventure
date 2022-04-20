@@ -14,10 +14,8 @@ class Solution:
                 continue
                 
             if nums[i] - 1 == nums[i-1]:
-                # print(nums[i], count)
                 count += 1
                 max_res = max(count, max_res)
             else:
-                max_res = max(count, max_res)
                 count = 1
         return max_res
