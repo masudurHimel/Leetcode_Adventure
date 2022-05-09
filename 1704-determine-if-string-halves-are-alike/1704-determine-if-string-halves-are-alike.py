@@ -4,12 +4,11 @@ class Solution:
         temp_list = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
         res = 0
         
-        for i in targetA:
+        for i,j in zip(targetA, targetB):
             if i in temp_list:
                 res += 1
         
-        for i in targetB:
-            if i in temp_list:
+            if j in temp_list:
                 res -= 1
         
         
