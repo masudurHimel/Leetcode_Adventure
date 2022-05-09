@@ -3,6 +3,5 @@ func checkIfPangram(sentence string) bool{
     for i:=0;i<len(sentence);i++{
         res[string(sentence[i])] = 1
     }
-    
     return len(res) == 26
 }
