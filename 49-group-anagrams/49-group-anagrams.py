@@ -3,7 +3,7 @@ class Solution:
         res = {}
         
         for i in strs:
-            _ = sorted([j for j in i])
+            _ = sorted(list(i))
             if x := res.get(str(_)):
                 x = x + [i]
                 res[str(_)] = x
