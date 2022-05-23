@@ -4,7 +4,7 @@ class Solution:
         
         for i in strs:
             _ = sorted(i)
-            _ = ''.join(_)
+            _ = str(_)
             if x := res.get(_):
                 x = x + [i]
                 res[_] = x
