@@ -4,11 +4,12 @@ class Solution:
         
         for i in strs:
             _ = sorted(i)
-            if x := res.get(str(_)):
+            _ = ''.join(_)
+            if x := res.get(_):
                 x = x + [i]
-                res[str(_)] = x
+                res[_] = x
             else:
-                res[str(_)] = [i]
+                res[_] = [i]
         
         f_res = []
         for v in res.values():
