@@ -3,14 +3,8 @@ class Solution:
         res = {}
         
         for i in strs:
-            _ = sorted(i)
-            _ = str(_)
-            if x := res.get(_):
-                x = x + [i]
-                res[_] = x
-            else:
-                res[_] = [i]
-        
+            _ = str(sorted(i))
+            res[_] = res.get(_, []) + [i]
         return res.values()
             
             
