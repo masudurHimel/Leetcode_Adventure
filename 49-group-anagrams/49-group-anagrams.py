@@ -11,11 +11,7 @@ class Solution:
             else:
                 res[_] = [i]
         
-        f_res = []
-        for v in res.values():
-            f_res.append(v)
-        
-        return f_res
+        return res.values()
             
             
             
