@@ -1,9 +1,8 @@
 class Solution:
     def numSpecial(self, mat: List[List[int]]):
-        t_mat = []
+        t_mat = list(zip(*mat))
         res = 0
-        for i in zip(*mat):
-            t_mat.append(i)
+        
             
         for row in range(len(mat)):
             for j in range(len(mat[0])):
