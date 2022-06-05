@@ -5,8 +5,8 @@ func isAnagram(s string, t string) bool {
     
     resMap := make(map[byte]int)
     secMap := make(map[byte]int)
-    var exist bool
-    var secVal int
+    // var exist bool
+    // var secVal int
     
     for i:=0;i<len(s);i++{
         resMap[s[i]] = 0
@@ -20,13 +20,7 @@ func isAnagram(s string, t string) bool {
      
     
     for k,v := range resMap{
-        secVal, exist = secMap[k]
-        
-        if !exist{
-            return false
-        }
-        
-        if v != secVal{
+        if v != secMap[k]{
             return false
         }
     }
