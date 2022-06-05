@@ -1,9 +1,16 @@
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        map = {}
-        for i in range(len(nums)):
-            if map.get(nums[i]) == None:
-                map[target-nums[i]] = i
-            else:
-                return [map[nums[i]], i]
-        return [-1,-1]
+func twoSum(nums []int, target int) []int {
+    resMap := make(map[int]int)
+    res := []int{-1,-1}
+    
+    for i,v := range nums{
+        if _, e := resMap[v]; e == false{
+            resMap[target-v] = i
+        }else{
+            res[0], res[1] = resMap[v], i
+            return res
+        }
+    }
+    
+    return res
+    
+}
