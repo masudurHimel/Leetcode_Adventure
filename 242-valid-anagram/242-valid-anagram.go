@@ -9,25 +9,14 @@ func isAnagram(s string, t string) bool {
     var secVal int
     
     for i:=0;i<len(s);i++{
-        resMap[s[i]], exist = resMap[s[i]]
-        
-        if !exist{
-            resMap[s[i]] = 1
-        }else{
-            resMap[s[i]]++
-        }
+        resMap[s[i]] = 0
+        resMap[t[i]] = 0
     }
     
-    for i:=0;i<len(t);i++{
-        secMap[t[i]], exist = secMap[t[i]]
-        
-        if !exist{
-            secMap[t[i]] = 1
-        }else{
-            secMap[t[i]]++
-        }
+    for i:=0;i<len(s);i++{
+        resMap[s[i]]++
+        secMap[t[i]]++
     }
-
      
     
     for k,v := range resMap{
