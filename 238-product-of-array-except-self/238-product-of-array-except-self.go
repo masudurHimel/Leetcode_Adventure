@@ -12,8 +12,6 @@ func productExceptSelf(nums []int) []int {
         y[i] = y[i+1] * nums[i+1]
     }
     
-    fmt.Println(x,y)
-    
     for i:=0;i<len(nums);i++{
         x[i] = x[i] * y[i]
     }
