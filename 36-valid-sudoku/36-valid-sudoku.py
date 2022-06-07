@@ -1,23 +1,23 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         for i in board:
-            temp_res = set()
+            temp_count = set()
             for j in i:
                 if j != ".":
-                    temp_res.add(j)
+                    temp_count.add(j)
             dot_count = i.count('.')
-            if dot_count + len(temp_res) != 9:
+            if dot_count + len(temp_count) != 9:
                 return False
             
-        another_board = list(zip(*board))
+        transpose_board = list(zip(*board))
         
-        for i in another_board:
-            temp_res = set()
+        for i in transpose_board:
+            temp_count = set()
             for j in i:
                 if j != ".":
-                    temp_res.add(j)
+                    temp_count.add(j)
             dot_count = i.count('.')
-            if dot_count + len(temp_res) != 9:
+            if dot_count + len(temp_count) != 9:
                 return False
         
         box_res = x = [[],[],[], [],[],[], [],[],[]]
@@ -29,12 +29,12 @@ class Solution:
             
             
         for i in box_res:
-            temp_res = set()
+            temp_count = set()
             for j in i:
                 if j != ".":
-                    temp_res.add(j)
+                    temp_count.add(j)
             dot_count = i.count('.')
-            if dot_count + len(temp_res) != 9:
+            if dot_count + len(temp_count) != 9:
                 return False
             
         
