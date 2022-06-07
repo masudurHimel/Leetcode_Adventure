@@ -8,4 +8,6 @@ class Solution:
                 while i+l in res:
                     l += 1
                 max_res = max(l, max_res)
+            if max_res >= len(nums)//2:
+                return max_res
         return max_res
