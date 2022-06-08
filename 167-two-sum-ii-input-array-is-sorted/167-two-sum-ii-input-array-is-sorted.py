@@ -1,10 +1,12 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        map = {}
-        for i in range(len(numbers)):
-            if map.get(numbers[i]) == None:
-                map[target-numbers[i]] = i
+        l = 0
+        h = len(numbers) -1
+        while(l<h):
+            if numbers[l] + numbers[h] > target:
+                h = h-1
+            elif numbers[l] + numbers[h] < target:
+                l = l+1
             else:
-                return [map[numbers[i]]+1, i+1]
-        return [-1,-1]
+                return [l+1,h+1]
             
