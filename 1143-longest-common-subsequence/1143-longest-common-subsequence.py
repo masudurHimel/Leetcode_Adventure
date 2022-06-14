@@ -1,6 +1,6 @@
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
-        @lru_cache(maxsize=None)
+        @cache
         def solve(p1, p2):
             if len(text1) == p1 or len(text2) == p2:
                 return 0
