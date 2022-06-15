@@ -11,5 +11,4 @@ class Solution:
             res_seen[s[r]] = r
             r += 1
         
-        print(res_seen)
         return res
