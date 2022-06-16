@@ -10,16 +10,8 @@ class MyLinkedList:
         self.root = None
         self.length = 0
         
-    def visualize(self):
-        root = self.root
-        while root:
-            print(root.val, end=' ')
-            root = root.next
-        print()
-        
 
     def get(self, index: int) -> int:
-        self.visualize()
         if index >= self.length:
             return -1
         
