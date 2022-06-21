@@ -9,7 +9,4 @@ class Solution:
         for k, i in enumerate(t):
             t_hash[i] = t_hash.get(i, []) + [k]
         
-        for i in zip(s_hash.values(), t_hash.values()):
-            if i[0]!=i[1]:
-                return False
-        return True
+        return list(s_hash.values()) == list(t_hash.values())
