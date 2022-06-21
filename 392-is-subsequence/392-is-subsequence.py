@@ -1,13 +1,12 @@
 class Solution:
-    def isSubsequence(self, text1: str, text2: str) -> bool:
-        @cache
-        def solve(p1, p2):
-            if len(text1) == p1 or len(text2) == p2:
-                return 0
-            
-            if text1[p1] == text2[p2]:
-                return 1 + solve(p1+1, p2+1)
-            else:
-                return max(solve(p1+1,p2), solve(p1, p2+1))
-            
-        return solve(0,0) == len(text1)
+    def isSubsequence(self, s: str, t: str) -> bool:
+        if len(s) > len(t): return False
+        if len(s) == 0: return True
+        
+        res = 0
+        for i in range(len(t)):
+            if s[res] == t[i]:
+                res+=1
+            if res >= len(s):
+                break
+        return res == len(s)
