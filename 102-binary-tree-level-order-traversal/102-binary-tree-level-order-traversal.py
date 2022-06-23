@@ -10,14 +10,13 @@ class Solution:
             return root
         res = []
         temp_node = root
-        temp_list = collections.deque()
-        temp_list.append(root)
+        temp_list = [temp_node]
         
         while temp_list:
             temp = []
             n = len(temp_list)
             for i in range(n):
-                res_node = temp_list.popleft()
+                res_node = temp_list.pop(0)
                 temp.append(res_node.val)
                 if res_node.left: 
                     temp_list.append(res_node.left)
