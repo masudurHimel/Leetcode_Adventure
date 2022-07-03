@@ -1,18 +1,13 @@
 class Solution:
     def buildArray(self, target: List[int], n: int) -> List[str]:
-        ind = 1
+        ind = 0
         res = []
-        for i in target:
-            if i == ind:
+        for i in range(1,n+1):
+            if ind >= len(target):
+                break
+            if i == target[ind]:
                 ind += 1
                 res.append("Push")
-            elif diff := i - ind:
-                res.append("Push")
-                while diff > 0:
-                    res.append("Pop")
-                    res.append("Push")
-                    ind += 1
-                    diff -= 1
-                ind += 1
-        
+            else:
+                res.extend(['Push', 'Pop'])
         return res
