@@ -1,1 +1,1 @@
-Approach : Brute-Force
+Approach : Monotonic Stack
