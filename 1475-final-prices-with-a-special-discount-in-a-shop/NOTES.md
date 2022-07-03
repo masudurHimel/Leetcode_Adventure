@@ -1,1 +1,1 @@
-​
+Approach : Brute-Force
