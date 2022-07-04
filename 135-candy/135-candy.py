@@ -13,6 +13,4 @@ class Solution:
             if ratings[i] > ratings[i+1]:
                 res[i] = max(res[i], res[i+1]+1)
 
-        print(res)
-
         return sum(res)
