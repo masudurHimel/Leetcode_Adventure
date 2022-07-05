@@ -1,23 +1,12 @@
 class Solution:
-    def backspaceCompare(self, s: str, t: str) -> bool:
-        # return True
-        x = []
-        y = []
-        
-        for i in range(len(s)):
-            if s[i] != '#':
-                x.append(s[i])
-            else:
-                if x:
-                    x.pop()
+    def extractString(self, target):
+        res = []
+        for i in range(len(target)):
+            if target[i] != '#':
+                res.append(target[i])
+            elif res:
+                res.pop()
+        return res
                 
-        for i in range(len(t)):
-            if t[i] != '#':
-                y.append(t[i])
-            else:
-                if y:
-                    y.pop()
-        
-
-        print(x,y)
-        return x == y
+    def backspaceCompare(self, s: str, t: str) -> bool:
+        return self.extractString(s) == self.extractString(t)
