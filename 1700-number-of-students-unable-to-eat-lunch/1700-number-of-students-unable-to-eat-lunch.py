@@ -8,8 +8,8 @@ class Solution:
 
             if sandwiches[0] == students[0]:
                 rep = 0
-                sandwiches.pop(0)
-                students.pop(0)
+                sandwiches[:] = sandwiches[1:]
+                students[:] = students[1:]
             else:
                 rep += 1
                 students[:] = students[1:] + students[0:1]
