@@ -10,6 +10,4 @@ class Solution:
                 pass
             else:
                 res.append(i[:-1])
-        print(res)
-        
         return len(res)
