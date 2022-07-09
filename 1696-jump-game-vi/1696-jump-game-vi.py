@@ -1,12 +1,14 @@
 class Solution:
     def maxResult(self, nums: List[int], k: int) -> int:
-        N = len(nums)
-        heap = [] # (-sum, pos)
+        n = len(nums)
+        heap = []
 
-        for i in range(N-1, -1, -1):
+        for i in range(n-1, -1, -1):
             while heap and heap[0][1] > i + k:
                 heapq.heappop(heap)
-            maxincluding = - nums[i] + (heap[0][0] if heap else 0)
-            heapq.heappush(heap, (maxincluding, i))
+            temp = heap[0][0] if heap else 0
+            max_including = - nums[i] + temp
+            heapq.heappush(heap, (max_including, i))
+            
             if i == 0: 
-                return -maxincluding
+                return -1 * max_including
