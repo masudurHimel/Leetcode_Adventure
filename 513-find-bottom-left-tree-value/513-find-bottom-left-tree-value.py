@@ -8,7 +8,6 @@ class Solution:
     def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
         if not root:
             return []
-        res = []
         queue = deque([root])
         while queue:
             temp = []
@@ -20,5 +19,5 @@ class Solution:
                     queue.append(temp_node.left)
                 if temp_node.right:
                     queue.append(temp_node.right)
-            res.append(temp)
-        return res[-1][0]
+            
+        return temp[0]
