@@ -10,16 +10,16 @@ class Solution:
             return []
         
         res = []
-        queue = [root]
+        queue = deque([root])
         while queue:
-            temp = []
+            temp = None
             n = len(queue)
             for i in range(n):
-                temp_node = queue.pop(0)
-                temp.append(temp_node.val)
+                temp_node = queue.popleft()
+                temp = temp_node.val
                 if temp_node.left:
                     queue.append(temp_node.left)
                 if temp_node.right:
                     queue.append(temp_node.right)
-            res.append(temp[-1])
+            res.append(temp)
         return res
