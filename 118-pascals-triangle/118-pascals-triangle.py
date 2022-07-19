@@ -1,6 +1,5 @@
 class Solution:
     def generate(self, numRows):
-        # res = [[1], [1,1]]
         res = []
         for i in range(numRows):
             res.append([])
