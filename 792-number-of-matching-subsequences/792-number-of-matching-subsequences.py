@@ -15,7 +15,9 @@ class Solution:
         res = 0
         res_map = {}
         s = list(s)
+        count = 0
         for word in words:
+            print(len(res_map))
             key = word
             if word not in res_map:
                 if isSubSet(s, word):
@@ -26,5 +28,5 @@ class Solution:
             else:
                 if res_map[word]:
                     res += 1
-
+        
         return res
