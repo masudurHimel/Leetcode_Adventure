@@ -1,11 +1,5 @@
 class Solution:
     def countSmaller(self, nums: List[int]) -> List[int]:
-        # def helper(target, nums):
-        #     count = 0
-        #     for i in nums:
-        #         if i < target:
-        #             count += 1
-        #     return count
         f_res = []
         sorted_nums = sorted(nums)
         for ind, i in enumerate(nums):
