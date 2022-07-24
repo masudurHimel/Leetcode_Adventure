@@ -7,7 +7,8 @@ class Solution:
             while col < len(matrix[0]):
                 if matrix[row][col] == target:
                     return True
+                elif matrix[row][col] > target:
+                    break
                 col += 1
             row += 1
-        
         return False
