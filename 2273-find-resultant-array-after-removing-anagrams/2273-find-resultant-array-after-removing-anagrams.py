@@ -19,6 +19,4 @@ class Solution:
             else:
                 i += 1
         
-        print(words)
-        
         return words
