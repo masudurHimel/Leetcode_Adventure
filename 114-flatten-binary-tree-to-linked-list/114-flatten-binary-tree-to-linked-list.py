@@ -5,16 +5,38 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def __init__(self):
-        self.prev = None
-    
-    def flatten(self, root):
+    def flatten(self, root: Optional[TreeNode]) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
         if not root:
-            return None
+            return
+            
+        head = root
+        stack = deque([head])
+        res = deque([])
         
-        self.flatten(root.right)
-        self.flatten(root.left)
+        while stack:
+            _ = stack.popleft()
+            res.append(_.val)
 
-        root.right = self.prev
+            if _.right:
+                stack.appendleft(_.right)
+            if _.left:
+                stack.appendleft(_.left)
+        
+        q = TreeNode(val=res.popleft())
+        r = q
+        while res:
+            q.left = None
+            q.right = TreeNode(val=res.popleft())
+            q = q.right
+
+        # print(root)
+        # print(r)
+        
         root.left = None
-        self.prev = root
+        root.right = r.right
+        
+        
+        
