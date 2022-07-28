@@ -1,10 +1,12 @@
 class Solution:
     def removeAnagrams(self, words: List[str]) -> List[str]:
+        
         def isAnagram(s, t):
-            s = Counter(s)
-            t = Counter(t)
             if len(s) != len(t):
                 return False
+            s = Counter(s)
+            t = Counter(t)
+            
 
             for i in s.keys():
                 if t.get(i,0) != s[i]:
