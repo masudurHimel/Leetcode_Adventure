@@ -10,10 +10,13 @@ class Solution:
             temp_words_1.append(Counter(i))
         
         for i in words2:
+            temp_dict = {}
             for j in i:
-                c = i.count(j)
-                if j not in temp_words_2 or c > temp_words_2.get(j):
-                    temp_words_2[j] = c
+                temp_dict[j] = temp_dict.get(j, 0) + 1
+            
+            for j in temp_dict:
+                if j not in temp_words_2 or temp_dict[j] > temp_words_2.get(j):
+                    temp_words_2[j] = temp_dict[j]
         
         
         for i in temp_words_2.keys():
