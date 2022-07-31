@@ -22,9 +22,6 @@ class NumArray:
             index += index & (-index)
 
     def sumRange(self, left: int, right: int) -> int:
-        # if left == right:
-        #     return self.nums[left]
-        # return 0
         res = 0
         index = right + 1
         while index > 0:
