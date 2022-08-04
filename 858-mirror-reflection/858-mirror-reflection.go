@@ -9,14 +9,13 @@ func lcm(a int, b int) int{
     return c/a
 }
 func mirrorReflection(p int, q int) int {
-    x, y := (lcm(p,q) / q) % 2, (lcm(p,q) / p) % 2
+    l := lcm(p,q)
+    x, y := (l / q) % 2, (l / p) % 2
     if x == 0{
         return 2
-    }else{
-        if y == 1{
+    }else if y == 1{
             return 1
-        }else{
-            return 0
-        }
+    }else{
+        return 0
     }
 }
