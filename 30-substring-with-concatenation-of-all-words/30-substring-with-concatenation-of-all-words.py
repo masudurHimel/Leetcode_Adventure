@@ -12,8 +12,8 @@ class Solution:
                 if word_counter[target] > 0:
                     word_counter[target] -= 1
                     word_used += 1
-                # else:
-                #     break
+                else:
+                    break
             return word_used == len(words)
         
         res = []
