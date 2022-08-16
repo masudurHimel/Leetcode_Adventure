@@ -1,12 +1,14 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        if len(s) == 1:
-            return 0
-        
-        visited = []
-        for i in range(len(s)):
-            if s[i] not in visited  and s[i+1:].count(s[i]) == 0:
-                return i
+        s_map = {}
+        reject_map = {}
+        for i, v in enumerate(s):
+            if reject_map.get(v):
+                continue
+            if v in s_map:
+                s_map.pop(v)
+                reject_map[v] = True
             else:
-                visited.append(s[i])
-        return -1
+                s_map[v] = i
+        print(s_map)
+        return min(s_map.values()) if s_map else -1  
