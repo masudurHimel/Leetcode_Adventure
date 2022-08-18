@@ -1,14 +1,13 @@
 class Solution:
     def minSetSize(self, arr: List[int]) -> int:
-        
-        cnt = Counter(arr) 
-        num_freq = sorted(cnt.values(), reverse=True) 
-        
-        half_size = len(arr) // 2
+        res_map = Counter(arr)
+        sorted_res = sorted(res_map.values(), reverse=True)
+        target_len = len(arr)//2
         ans = 0
-        
-        while half_size > 0:
-            half_size -= num_freq[ans]
+        print(sorted_res)
+        while target_len > 0:
+            target_len -= sorted_res[ans]
             ans += 1
-        
+            
         return ans
+    
