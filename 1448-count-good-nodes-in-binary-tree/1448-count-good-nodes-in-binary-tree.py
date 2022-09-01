@@ -16,13 +16,11 @@ class Solution:
             if x.val >= max_res:
                 res.append(x.val)
             
-            print(x.val, end=' ')
             max_res = max(max_res, x.val)
             dfs(x.left, max_res)
             dfs(x.right, max_res)
             
         dfs(root, max_res)
-        print(res)
         return len(res)
             
             
