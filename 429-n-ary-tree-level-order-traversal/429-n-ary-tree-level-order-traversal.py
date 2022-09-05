@@ -10,13 +10,13 @@ class Solution:
     def levelOrder(self, root: 'Node') -> List[List[int]]:
         if not root:
             return
-        stack = [root]
+        stack = deque([root])
         res = []
         while stack:
             temp = []
             a = []
             while stack:
-                node = stack.pop(0)
+                node = stack.popleft()
                 temp.append(node.val)
                 
                 for children in node.children:
