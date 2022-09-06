@@ -31,8 +31,6 @@ class Solution:
     def pruneTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         
         status = self.dfs(root)
-        if status is None:
-            return None
         
         if root.val == 0 and root.left is None and root.right is None:
             return None
