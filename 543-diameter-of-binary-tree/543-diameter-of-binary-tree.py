@@ -16,7 +16,8 @@ class Solution:
         lc = self.dfs(root.left, 1)
         rc = self.dfs(root.right, 1)
         self.res = max(self.res, lc+rc)
-        
+    
+    @lru_cache
     def dfs(self, root, val):
         if not root:
             return val-1
