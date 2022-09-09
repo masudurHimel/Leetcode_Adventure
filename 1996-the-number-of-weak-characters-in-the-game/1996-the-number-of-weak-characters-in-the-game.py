@@ -1,11 +1,13 @@
 class Solution:
     def numberOfWeakCharacters(self, properties: List[List[int]]) -> int:
-        p = sorted(properties, key=lambda x: (-x[0], x[1]))
-        a, d = p[0][0], p[0][1]
+        p = sorted(properties, key = lambda x: (-x[0], x[1]))
+        print(p)
         res = 0
-        for i, j in p[1:]:
-            if i < a and j < d: 
+        a, d = p[0][0], p[0][1]
+        for i in range(1, len(p)):
+            if p[i][0] < a and p[i][1] < d:
                 res += 1
-            else: 
-                a, d = i, j
+            else:
+                a, d = p[i][0], p[i][1]
+                
         return res
