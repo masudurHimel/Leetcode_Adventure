@@ -22,8 +22,8 @@ class Solution:
         if len(res) <= 1 and res[0] in {'+', '-'}:
             return 0
         
-        if len(res) > 1 and res[1] in {'+', '-'}:
-            return 0
+#         if len(res) > 1 and res[1] in {'+', '-'}:
+#             return 0
         
         if (-2**31) < int(res) < (2**31-1):
             return int(res)
