@@ -1,15 +1,18 @@
 class Solution:
     def validUtf8(self, data) -> bool:
-        for i in range(len(data)):
-            data[i] = bin(data[i])[2:]
-            if len(data[i]) < 8:
-                data[i] = '0' * (8-len(data[i])) + data[i]
-
-        if len(data) == 1 and data[0].find('0') != 0:
-            return False
+        if len(data) == 1:
+            temp = bin(data[0])[2:]
+            if len(temp) < 8:
+                temp = '0' * (8-len(temp)) + temp
+                if temp.find('0') != 0:            
+                    return False
 
         temp_count = 0
         for i in data:
+            i = bin(i)[2:]
+            if len(i) < 8:
+                i = '0' * (8-len(i)) + i
+                
             if temp_count > 0:
                 if i[:2] != '10':
                     return False
