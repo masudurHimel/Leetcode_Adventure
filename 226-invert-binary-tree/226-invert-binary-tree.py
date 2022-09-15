@@ -8,16 +8,10 @@ class Solution:
     def dfs(self, node):
         if not node:
             return None
-
-        l = self.dfs(node.left)
-        r = self.dfs(node.right)
-
-        temp = node.left
-        node.left = node.right
-        node.right = temp
+        node.left, node.right = self.dfs(node.right), self.dfs(node.left)
         return node
 
     def invertTree(self, root):
-        self.dfs(root)
-        return root
+        return self.dfs(root)
+        
         
