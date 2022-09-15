@@ -12,6 +12,8 @@ class Solution:
                 if lm.get(i * 2):
                     res.append(i)
                     lm[i * 2] = lm[i * 2] - 1
+                else:
+                    lm[i] = lm[i] + 1
         if len(changed) / 2 == len(res):
             return res
         return []
