@@ -5,21 +5,17 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    target_val = None
-    def dfs(self,node):
+    def dfs(self,node, target_val):
         if not node:
             return True
         
-        if self.target_val != node.val:
+        if target_val != node.val:
             return False
-        
-        if not self.dfs(node.left):
+        if not self.dfs(node.left, target_val):
             return False
-        if not self.dfs(node.right):
-            return False
-        
+        if not self.dfs(node.right, target_val):
+            return False  
         return True
         
     def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
-        self.target_val = root.val
-        return self.dfs(root)
+        return self.dfs(root, root.val)
