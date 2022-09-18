@@ -1,16 +1,12 @@
 class Solution:
     def findLonely(self, nums: List[int]) -> List[int]:
-        if len(nums) <= 1:
-            return nums
-        
-        n = sorted(nums)
+        c = Counter(nums)
+        n = set(nums)
         res = []
-        if n[0] + 1 < n[1]:
-            res.append(n[0])
-        if n[-2] + 1 < n[-1]:
-            res.append(n[-1])
-            
-        for i in range(1, len(n)-1):
-            if n[i-1] + 1 < n[i] and n[i] + 1 < n[i+1]:
-                res.append(n[i])
+        for i in n:
+            if i in c and c.get(i) > 1:
+                continue
+            if i-1 in n or i+1 in n:
+                continue
+            res.append(i)
         return res
