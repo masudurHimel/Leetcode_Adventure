@@ -17,7 +17,7 @@ class Solution:
     def findSecondMinimumValue(self, root: Optional[TreeNode]) -> int:
         self.res = set()
         self.dfs(root)
-        self.res = sorted(list(self.res))
         if len(self.res) <= 1:
             return -1
+        self.res = sorted(list(self.res))
         return self.res[1]
