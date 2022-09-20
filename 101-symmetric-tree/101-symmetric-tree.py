@@ -20,7 +20,7 @@ class Solution:
                     temp.append(node.right)
                 if node.left:
                     temp.append(node.left)
-            if temp and v != v[::-1]:
+            if temp and v[:len(v)//2] != v[len(v)//2:][::-1]:
                 return False
             stack += temp
         return True
