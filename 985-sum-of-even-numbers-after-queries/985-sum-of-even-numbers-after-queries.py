@@ -5,8 +5,6 @@ class Solution:
         for j in nums:
             if j % 2 == 0:
                 prev_sum += j
-        
-        print(prev_sum)
 
         for t in queries:
             v, i = t[0], t[1]
