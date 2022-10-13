@@ -14,7 +14,7 @@ class Solution:
             node.val = node.next.val
             
             if node.next and node.next.next is None:
-                node.next = node.next.next
+                node.next = None
                 break
 
             node = node.next
