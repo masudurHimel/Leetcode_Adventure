@@ -12,11 +12,9 @@ class Solution:
         """
         while node.next:
             node.val = node.next.val
-            
             if node.next and node.next.next is None:
                 node.next = None
                 break
-
             node = node.next
             
             
