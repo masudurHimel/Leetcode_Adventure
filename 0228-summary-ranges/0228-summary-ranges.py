@@ -16,9 +16,7 @@ class Solution:
                 else:
                     res.append(f"{s}->{e}")
                 s = i
-                e = i  
-                # if ind + 2 >= len(nums):
-                #     res.append(str(s))
+                e = i
         if s != e:
             res.append(f"{s}->{e}")
         else:
