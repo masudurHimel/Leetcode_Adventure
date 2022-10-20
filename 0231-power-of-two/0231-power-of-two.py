@@ -1,4 +1,9 @@
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
-        return (n > 0) and not (n & (n-1))
-            
+        if n <= 0:
+            return False
+        res = log2(n)
+        if res == int(res):
+            return True
+        else:
+            return False
