@@ -2,7 +2,6 @@ class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
         s_hash = {}
         t_hash = {}
-        
         for k, i in enumerate(s):
             s_hash[i] = s_hash.get(i, []) + [k]
         
