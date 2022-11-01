@@ -1,15 +1,19 @@
 class Solution:
-    def findBall(self, grid: List[List[int]]) -> List[int]:
-        m, n = len(grid), len(grid[0])
-        @cache
-        def helper(r, c):
-            if r == m:
-                return c
-            elif grid[r][c] == 1 and c+1 < n and grid[r][c+1] == 1:
-                return helper(r+1, c+1)
-            elif grid[r][c] == -1 and 0 <= c-1 and grid[r][c-1] == -1:
-                return helper(r+1, c-1)
+    def findBall(self, grid):
+        res = []
+
+        def checkPath(i, j):
+            if i == len(grid):
+                return j
+
+            if grid[i][j] == 1 and j+1 < len(grid[0]) and grid[i][j+1] == 1:
+                return checkPath(i + 1, j + 1)
+            elif grid[i][j] == -1 and j-1 >= 0 and grid[i][j-1] == -1:
+                return checkPath(i + 1, j - 1)
             else:
                 return -1
+
+        for j in range(len(grid[0])):
+            res.append(checkPath(0, j))
             
-        return [helper(0, j) for j in range(n)]
+        return res
