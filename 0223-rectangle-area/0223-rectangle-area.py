@@ -9,14 +9,7 @@ class Solution:
         f_r, s_r = f_rx * f_ry, s_rx * s_ry
         res = f_r + s_r
         
-        if bx1 > ax2:
-            return res
-        if bx1 < ax1 and bx2 < ax1:
-            return res
-        
-        if by1 > ay2:
-            return res
-        if by1 < ay1 and by2 < ay1:
+        if bx1 > ax2 or by1 > ay2 or (bx1 < ax1 and bx2 < ax1) or (by1 < ay1 and by2 < ay1):
             return res
         
         cx1, cx2, cy1, cy2 = max(ax1, bx1),min(ax2, bx2),max(by1, ay1),min(ay2, by2)
