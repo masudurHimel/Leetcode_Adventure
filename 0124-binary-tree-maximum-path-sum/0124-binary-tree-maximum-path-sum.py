@@ -6,10 +6,6 @@
 #         self.right = right
 class Solution:
     def maxPathSum(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
         self.res = float('-inf')
         self.helper(root)
         return self.res 
