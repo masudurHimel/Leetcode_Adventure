@@ -1,4 +1,5 @@
 class Solution:
+    
     @staticmethod
     def gcd(x, y):
         while(y):
