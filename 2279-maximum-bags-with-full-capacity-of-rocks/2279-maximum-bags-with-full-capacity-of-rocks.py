@@ -14,6 +14,9 @@ class Solution:
                 if capacity[i] <= additionalRocks:
                     additionalRocks -= capacity[i]
                     capacity[i] = 0
+                    cnt += 1
+            elif capacity[i] == 0:
+                cnt += 1
             
             
-        return capacity.count(0)
+        return cnt
