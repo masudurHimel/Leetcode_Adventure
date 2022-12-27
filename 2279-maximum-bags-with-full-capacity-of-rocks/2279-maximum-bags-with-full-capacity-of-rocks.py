@@ -17,6 +17,4 @@ class Solution:
                     cnt += 1
             elif capacity[i] == 0:
                 cnt += 1
-            
-            
         return cnt
