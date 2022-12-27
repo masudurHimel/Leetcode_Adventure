@@ -9,7 +9,6 @@ class Solution:
         for i in range(len(capacity)):
             if additionalRocks == 0:
                 break
-            
             if capacity[i] != 0:
                 if capacity[i] <= additionalRocks:
                     additionalRocks -= capacity[i]
