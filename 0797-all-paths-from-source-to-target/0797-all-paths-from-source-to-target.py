@@ -4,7 +4,7 @@ class Solution:
         res = list()
         
         def dfs(node, path=[]):
-            path = [*path, node]
+            path = path + [node]
             if node == n: 
                 res.append(path)
                 return
