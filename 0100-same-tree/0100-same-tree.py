@@ -5,32 +5,24 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        def levelOrderTraverse(root):
-            stack = [root]
-            res = []
-            
-            while stack:
-                _ = stack.pop()
-                if _ in ["RAN", "LAN"]:
-                    res.append(_)
-                    continue
-
-                if _.right:
-                    stack.append(_.right)
-                else:
-                    stack.append("RAN")
-                if _.left:
-                    stack.append(_.left)
-                else:
-                    stack.append("LAN")
-                res.append(_.val)
-            return res
+    res = []
+    def dfs(self, node):
+        if not node:
+            self.res.append(None)
+            return None
+        self.res.append(node.val)
+        self.dfs(node.left)
+        self.dfs(node.right)
         
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        self.res = []
         if not p and not q:
             return True
         
-        if p is None or q is None:
-            return False
+        self.dfs(p)
+        a = self.res + []
+        self.res = []
+        self.dfs(q)
+        print(a,self.res)
+        return a == self.res
         
-        return levelOrderTraverse(p) == levelOrderTraverse(q)
