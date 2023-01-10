@@ -23,6 +23,5 @@ class Solution:
         a = self.res + []
         self.res = []
         self.dfs(q)
-        print(a,self.res)
         return a == self.res
         
