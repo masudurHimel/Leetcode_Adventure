@@ -2,17 +2,17 @@ class Solution:
     def countSubTrees(self, n: int, edges: List[List[int]], labels: str) -> List[int]:
         ans = [0] * n
         tree = collections.defaultdict(list)
-        for a, b in edges:                             # build tree
+        for a, b in edges:                             
             tree[a].append(b)
             tree[b].append(a)
-        def dfs(node):                                 # dfs
+        def dfs(node):                                 
             nonlocal visited, ans, tree
-            c = collections.Counter(labels[node])
-            for nei in tree[node]:
-                if nei in visited: continue            # avoid revisit
-                visited.add(nei)
-                c += dfs(nei)                          # add counter (essentially adding a 26 elements dictionary)
-            ans[node] = c.get(labels[node])            # assign count of label to this node
+            c = Counter(labels[node])
+            for i in tree[node]:
+                if i in visited: continue           
+                visited.add(i)
+                c += dfs(i)                          
+            ans[node] = c.get(labels[node])            
             return c
         visited = set([0])
         dfs(0)
