@@ -8,8 +8,7 @@ class Solution:
         for a,b in trust:
             d[b].add(a)
             t.add(a)
-        
-        # print(d)
+            
         for k, v in d.items():
             if len(v) == n-1 and k not in t:
                 return k
