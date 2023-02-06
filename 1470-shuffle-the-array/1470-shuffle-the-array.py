@@ -1,9 +1,14 @@
 class Solution:
     def shuffle(self, nums: List[int], n: int) -> List[int]:
-        res = []
+        # res = []
         x = nums[:n]
         y = nums[n:]
-        for i in range(len(x)):
-            res.append(x[i])
-            res.append(y[i])
-        return res
+        fx, fy = 0, 0
+        for i in range(len(nums)):
+            if i%2 == 0:
+                nums[i] = x[fx]
+                fx += 1
+            else:
+                nums[i] = y[fy]
+                fy += 1
+        return nums
