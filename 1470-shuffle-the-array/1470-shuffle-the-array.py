@@ -4,6 +4,5 @@ class Solution:
         x = nums[:n]
         y = nums[n:]
         for i in range(len(x)):
-            res.append(x[i])
-            res.append(y[i])
+            res += [x[i],y[i]]
         return res
