@@ -1,18 +1,13 @@
 class Solution:
-    def jump(self, nums: List[int]) -> int:
-        if len(nums)==1: 
+    def jump(self, nums) -> int:
+        if not nums:
             return 0
-        
-        reachableIndex = 0
-        previousReachableIndex = 0
-        res = 0
-
-        for curr in range(len(nums)):
-            if curr + nums[curr] >= reachableIndex:
-                reachableIndex = curr + nums[curr]
-
-            if curr == previousReachableIndex:
-                res += 1
-                previousReachableIndex = reachableIndex
-                if previousReachableIndex >= len(nums) - 1:
-                    return res
+        n = len(nums)
+        dp = [0] * n
+        for i in range(1, n):
+            dp[i] = float("inf")
+            for j in range(i):
+                if i <= j + nums[j] and dp[j] != float("inf"):
+                    dp[i] = min(dp[i], dp[j] + 1)
+                    break
+        return dp[-1]
