@@ -11,7 +11,7 @@ class Solution:
 
         def dfs(root):
             if root is None:
-                return ',#'
+                return ',_'
             cur_str = dfs(root.left) + dfs(root.right) +  ',' + str(root.val)
             tree_strs[cur_str].append(root)
             return cur_str
