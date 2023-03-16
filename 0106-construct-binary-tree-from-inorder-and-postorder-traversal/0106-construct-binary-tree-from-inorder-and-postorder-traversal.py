@@ -12,7 +12,7 @@ class Solution:
         root = TreeNode(postorder.pop())
         inorderIndex = inorder.index(root.val)
 
-        root.right = self.buildTree(inorder[inorderIndex+1:], postorder) # Line B
-        root.left = self.buildTree(inorder[:inorderIndex], postorder) # Line C
+        root.right = self.buildTree(inorder[inorderIndex+1:], postorder) 
+        root.left = self.buildTree(inorder[:inorderIndex], postorder) 
 
         return root
