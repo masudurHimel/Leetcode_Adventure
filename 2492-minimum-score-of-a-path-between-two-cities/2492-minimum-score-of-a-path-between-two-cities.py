@@ -4,7 +4,6 @@ class Solution:
         for a, b, d in roads:
             graph[a][b] = d
             graph[b][a] = d
-        print(graph)
         min_score = math.inf
         visited = set()
         queue = deque([1])
