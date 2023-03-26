@@ -6,7 +6,7 @@ class Solution:
         
         for i in marker:
             f = marker[i].pop()
-            if target-i in marker and marker.get(target-i):
+            if marker.get(target-i):
                 l = marker[target-i].pop()
                 return [f, l]
             else:
