@@ -1,14 +1,9 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        marker = defaultdict(list)
+        marker = dict()
         for i, v in enumerate(nums):
-            marker[v].append(i)
-        
-        for i in marker:
-            f = marker[i].pop()
-            if marker.get(target-i):
-                l = marker[target-i].pop()
-                return [f, l]
+            if target - v in marker:
+                return [i, marker[target-v]]
             else:
-                marker[i].append(f)
+                marker[v] = i
         return [0, 0]
