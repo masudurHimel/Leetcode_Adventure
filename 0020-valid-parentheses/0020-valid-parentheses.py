@@ -1,16 +1,19 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        if len(s) <= 1:
-            return False
-        
-        helper = {')': '(', ']': '[', '}': '{'}
-        res = [s[0]]
-        for i in s[1:]:
-            if target := helper.get(i):
-                if res and target == res[-1]:
-                    res.pop()
-                else:
-                    return False
+        ref = {"(": ")", "{": "}", "[":"]"}
+        stack = []
+        for i in s:
+            if i in ref:
+                stack.append(i)
+            elif not stack:
+                return False
             else:
-                res.append(i)
-        return False if res else True
+                temp = stack.pop()
+                if ref[temp] != i:
+                    return False
+        if stack:
+            return False
+        return True
+                    
+            
+        
