@@ -19,6 +19,5 @@ class Solution:
         
         return None
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        self.dfs(root)
-        return root
+        return self.dfs(root)
         
