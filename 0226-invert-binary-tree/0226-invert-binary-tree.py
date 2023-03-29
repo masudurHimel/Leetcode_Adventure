@@ -9,11 +9,7 @@ class Solution:
         if not node:
             return None
         
-        l = self.dfs(node.left)
-        r = self.dfs(node.right)
-        
-        node.left = r
-        node.right = l
+        node.left, node.right = self.dfs(node.right), self.dfs(node.left)
         
         return node
         
