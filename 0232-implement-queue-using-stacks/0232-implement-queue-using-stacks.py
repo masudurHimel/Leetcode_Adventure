@@ -1,19 +1,33 @@
 class MyQueue:
 
     def __init__(self):
-        self.lst = deque([])
-
+        self.lst = []
+        self.backup = []
+        self.size = 0
+        
     def push(self, x: int) -> None:
         self.lst.append(x)
+        self.size += 1
         
     def pop(self) -> int:
-        return self.lst.popleft()
+        if not self.backup:
+            while self.lst:
+                self.backup.append(self.lst.pop())
+        self.size -= 1
+        return self.backup.pop()
 
     def peek(self) -> int:
-        return self.lst[0]
+        if not self.backup:
+            while self.lst:
+                self.backup.append(self.lst.pop())
+        res = self.backup.pop()
+        self.backup.append(res)
+        return res
 
     def empty(self) -> bool:
-        return len(self.lst) == 0
+        if self.size:
+            return False
+        return True
         
 
 
