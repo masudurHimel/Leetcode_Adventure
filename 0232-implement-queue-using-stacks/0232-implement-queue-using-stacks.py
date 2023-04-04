@@ -2,6 +2,7 @@ class MyQueue:
 
     def __init__(self):
         self.lst = []
+        self.backup = []
         self.size = 0
         
     def push(self, x: int) -> None:
@@ -9,32 +10,18 @@ class MyQueue:
         self.size += 1
         
     def pop(self) -> int:
-        i = len(self.lst)
-        backup = []
-        while i:
-            backup.append(self.lst.pop())
-            i -= 1
-        res = backup.pop()
-        i = len(backup)
-        while i:
-            self.lst.append(backup.pop())
-            i -= 1
-            
+        if not self.backup:
+            while self.lst:
+                self.backup.append(self.lst.pop())
         self.size -= 1
-        return res
+        return self.backup.pop()
 
     def peek(self) -> int:
-        i = len(self.lst)
-        backup = []
-        while i:
-            backup.append(self.lst.pop())
-            i -= 1
-        res = backup.pop()
-        backup.append(res)
-        i = len(backup)
-        while i:
-            self.lst.append(backup.pop())
-            i -= 1
+        if not self.backup:
+            while self.lst:
+                self.backup.append(self.lst.pop())
+        res = self.backup.pop()
+        self.backup.append(res)
         return res
 
     def empty(self) -> bool:
