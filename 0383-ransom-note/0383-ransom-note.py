@@ -4,10 +4,8 @@ class Solution:
         mn = Counter(magazine)
         
         for k, v in rn.items():
-            if t := mn.get(k):
-                if t < v:
-                    return False
-            else:
+            t = mn.get(k, 0)
+            if t < v:
                 return False
         return True
             
