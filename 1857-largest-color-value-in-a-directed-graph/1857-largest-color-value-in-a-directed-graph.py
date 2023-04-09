@@ -1,10 +1,8 @@
 class Solution:
     def largestPathValue(self, coloring: str, edges: List[List[int]]) -> int:
         N = len(coloring)
-        # O(N)TS
         degree = [0] * N
         node_color = {node:color for node, color in enumerate(coloring)}
-        # O(E) TS
         adj = collections.defaultdict(set)
         for n_1, n_2 in edges:
             adj[n_1].add(n_2)
