@@ -7,6 +7,5 @@ class Solution:
                 res.append(i)
             else:
                 res.pop()
-        
         return "".join(res)
         
