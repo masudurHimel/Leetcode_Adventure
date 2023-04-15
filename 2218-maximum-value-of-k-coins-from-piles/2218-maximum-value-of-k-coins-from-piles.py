@@ -1,7 +1,7 @@
 class Solution:
     def maxValueOfCoins(self, piles: List[List[int]], k: int) -> int:
     
-        @functools.lru_cache(None)
+        @lru_cache(None)
         def dp(i,K):
             if k==0 or i==len(piles):
                 return 0
