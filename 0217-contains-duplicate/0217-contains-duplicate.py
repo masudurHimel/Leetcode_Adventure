@@ -1,8 +1,16 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        c = {}
+        pChecker = 0
+        nChecker = 0
         for i in nums:
-            c[i] = c.get(i, 0) + 1
-            if c.get(i) > 1:
-                return True
+            if i >= 0:
+                if (pChecker & 1<<i)>0:
+                    return True
+                pChecker |= (1 << i)
+
+            if i<0:
+                i = abs(i)
+                if(nChecker & 1<<i)>0:
+                    return True
+                nChecker |= (1<<i)
         return False
