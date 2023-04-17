@@ -1,11 +1,12 @@
 class Solution:
     def maxSubArray(self, nums):
-        combined = deque([nums[-1]])
-        greedy = deque([nums[-1]])
+        combined = [nums[-1]] * len(nums)
+        greedy = [nums[-1]] * len(nums)
 
         for i in range(len(nums) - 2, -1, -1):
-            combined.appendleft(combined[0]+nums[i])
-            greedy.appendleft(max(nums[i], greedy[0]+nums[i]))
+            # combined.appendleft(combined[0]+nums[i])
+            combined[i] = combined[i+1]+nums[i]
+            greedy[i] = max(nums[i], greedy[i+1]+nums[i])
 
         # print(combined)
         # print(greedy)
