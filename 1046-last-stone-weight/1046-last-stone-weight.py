@@ -16,7 +16,5 @@ class Solution:
                 stones.add(y)
             print(stones)
             print("---")
-        if stones:
-            return stones[0]
-        else:
-            return 0
+
+        return 0
