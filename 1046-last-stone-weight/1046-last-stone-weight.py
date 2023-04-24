@@ -2,7 +2,7 @@ from sortedcontainers import SortedList
 
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
-        stones = SortedList(stones)
+        stones = sorted(stones)
         while len(stones):
             x = stones.pop()
             if not stones:
@@ -12,5 +12,6 @@ class Solution:
                 continue
             else:
                 y = abs(y-x)
-                stones.add(y)
+                stones.append(y)
+            stones = sorted(stones)
         return 0
