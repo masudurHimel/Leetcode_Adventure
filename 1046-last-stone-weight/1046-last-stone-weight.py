@@ -4,7 +4,6 @@ class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         stones = SortedList(stones)
         while len(stones):
-            print(stones)
             x = stones.pop()
             if not stones:
                 return x
@@ -14,7 +13,4 @@ class Solution:
             else:
                 y = abs(y-x)
                 stones.add(y)
-            print(stones)
-            print("---")
-
         return 0
