@@ -1,20 +1,22 @@
+from sortedcontainers import SortedList
+
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
-        stones = sorted(stones)
-        print(stones)
-        while True:
-            if len(stones) >= 2:
-                if stones[-2] == stones[-1]:
-                    stones = stones[:-2]
-                else:
-                    stones = stones[:-2] + [stones[-1]-stones[-2]]
-                    
-            if len(stones) <= 1:
-                break
-            stones = sorted(stones)
-
-        
-        if len(stones) == 0:
+        stones = SortedList(stones)
+        while len(stones):
+            print(stones)
+            x = stones.pop()
+            if not stones:
+                return x
+            y = stones.pop()
+            if x == y:
+                continue
+            else:
+                y = abs(y-x)
+                stones.add(y)
+            print(stones)
+            print("---")
+        if stones:
+            return stones[0]
+        else:
             return 0
-        
-        return stones[0]
