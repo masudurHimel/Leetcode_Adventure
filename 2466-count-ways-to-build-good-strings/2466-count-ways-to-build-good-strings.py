@@ -6,4 +6,4 @@ class Solution:
                 return 0
             val = (int(low <= i) + dp(i+one) + dp(i+zero))%(pow(10,9)+7)
             return val
-        return dp(0)    
+        return dp(0)
