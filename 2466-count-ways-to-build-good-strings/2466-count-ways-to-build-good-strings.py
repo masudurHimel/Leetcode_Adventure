@@ -4,6 +4,5 @@ class Solution:
         def dp(i):
             if i > high:
                 return 0
-            val = (int(low <= i) + dp(i+one) + dp(i+zero))%(pow(10,9)+7)
-            return val
+            return (int(low <= i) + dp(i+one) + dp(i+zero))%(pow(10,9)+7)
         return dp(0)
