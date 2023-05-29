@@ -1,14 +1,19 @@
 class ParkingSystem:
 
     def __init__(self, big: int, medium: int, small: int):
-        self.left = [big, medium, small]
+        self.space = {
+            1: big,
+            2: medium,
+            3: small
+        }
         
 
     def addCar(self, carType: int) -> bool:
-        if self.left[carType-1] > 0:
-            self.left[carType-1] -= 1
-            return True
-        return False
+        if space := self.space.get(carType):
+                self.space[carType] -= 1
+                return True
+        else:
+            return False
 
 
 # Your ParkingSystem object will be instantiated and called as such:
