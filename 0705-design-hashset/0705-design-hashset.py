@@ -9,10 +9,8 @@ class MyHashSet:
         
 
     def remove(self, key: int) -> None:
-        try:
+        if key in self.hash_set:
             self.hash_set.remove(key)
-        except Exception as e:
-            pass
         
 
     def contains(self, key: int) -> bool:
