@@ -1,6 +1,5 @@
 class Solution:
     def buddyStrings(self, s: str, goal: str) -> bool:
-        ls, lg = len(s), len(goal)
         fs, fg = list(s), list(goal)
         if len(s) != len(goal):
             return False
@@ -15,9 +14,6 @@ class Solution:
                 ind_l.append(i)
                 ab.append(f)
             i += 1
-        
-        # print(ab, ind_l, fs, fg)
-        # print(reg)
 
         if len(ab) == 2:
             fs[ind_l[0]] = ab[1]
