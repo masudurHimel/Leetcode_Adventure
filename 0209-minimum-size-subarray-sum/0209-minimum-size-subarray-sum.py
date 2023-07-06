@@ -2,23 +2,23 @@ class Solution:
 
     def minSubArrayLen(self, target: int, nums: list[int]) -> int:
 
-        if sum(nums) < target: return 0               # <-- 1
+        if sum(nums) < target: return 0               
 
-        s, l, ans = 0, 0, len(nums)                   # <-- 2
+        s, l, ans = 0, 0, len(nums)                   
 
         
 
-        for r,val in enumerate(nums):                 # 
+        for r,val in enumerate(nums):                 
 
-            s+= val                                   #
+            s+= val                                   
 
-            while s >= target:                        # <-- 3
+            while s >= target:                       
 
-                s-= nums[l]                           #
+                s-= nums[l]                         
 
-                ans = min(ans, r - l + 1)             #
+                ans = min(ans, r - l + 1)             
 
-                l+= 1                                 #
+                l+= 1                                 
 
         return ans
       
