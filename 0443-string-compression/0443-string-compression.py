@@ -1,12 +1,20 @@
 class Solution:
-    def compress(self, chars: List[str]) -> int:
-        count = 1
-        for i in range(len(chars)-1,-1,-1):
-            if i and chars[i]==chars[i-1]:
-                count += 1
-                chars.pop(i)
-            else:
-                if count>1:
-                    for item in str(count)[::-1]:
-                        chars.insert(i+1, item)
-                    count = 1
+    def compress(self, chars):
+        res = []
+        chars.append("|")
+        prev = chars[0]
+        counter = 1
+        for i in chars[1:]:
+            if i == prev:
+                counter += 1
+            elif i != prev:
+                res.append(prev)
+                if counter > 1:
+                    res.append(str(counter))
+                counter = 1
+
+            prev = i
+        res = ''.join(res)
+        for i in range(len(res)):
+            chars[i] = res[i]
+        return len(res)
