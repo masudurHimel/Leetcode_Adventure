@@ -3,15 +3,12 @@ class Solution:
         l, r = 0, 0
         flip = 0
         res = 0
-        while r < len(nums):
-            if nums[r] == 1:
-                r += 1
-            elif nums[r] == 0 and flip < 1:
-                r += 1
+        for i, v in enumerate(nums):
+            if v == 0:
                 flip += 1
-            else:
-                if nums[l] == 0:
-                    flip -= 1
-                l += 1
-            res = max(res, r-l-1)
-        return res
+                if flip == 2:
+                    flip = 1
+                    l = r+1
+                r = i
+            res = max(res, i-l+1)
+        return res - 1
