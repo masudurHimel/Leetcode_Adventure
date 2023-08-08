@@ -1,15 +1,17 @@
 class Solution:
-    def longestSubarray(self, nums):
-        n = len(nums)
-        if sum(nums) == n: return n - 1
-        
-        dp = [[0] * 2 for _ in range(n)]
-        dp[0][0] = nums[0]
-        
-        for i in range(1, n):
-            if nums[i] == 1:
-                dp[i][0], dp[i][1] = dp[i-1][0] + 1, dp[i-1][1] + 1
+    def longestSubarray(self, nums) -> int:
+        l, r = 0, 0
+        flip = 0
+        res = 0
+        while r < len(nums):
+            if nums[r] == 1:
+                r += 1
+            elif nums[r] == 0 and flip < 1:
+                r += 1
+                flip += 1
             else:
-                dp[i][0], dp[i][1] = 0, dp[i-1][0]
-        
-        return max([i for j in dp for i in j])  
+                if nums[l] == 0:
+                    flip -= 1
+                l += 1
+            res = max(res, r-l-1)
+        return res
