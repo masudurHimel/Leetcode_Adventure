@@ -7,11 +7,8 @@ class Solution:
         for i in t_matrix:
             row_dict[str(list(i))] += 1
             
-        # print(row_dict)
         for i in grid:
-            # print(i)
             if str(i) in row_dict:
                 res+=row_dict[str(i)]
-                # row_dict[str(i)] = 0
         return res
             
