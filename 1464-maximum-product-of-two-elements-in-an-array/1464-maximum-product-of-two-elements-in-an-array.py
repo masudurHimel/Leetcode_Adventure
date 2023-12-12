@@ -1,9 +1,6 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        res = 0
-        for i in range(len(nums)):
-            for j in range(len(nums)):
-                if i == j:
-                    continue   
-                res = max(res, (nums[i]-1)*(nums[j]-1))
-        return res
+        m1 = max(nums)
+        nums.remove(m1)
+        m2 = max(nums)
+        return (m1-1)*(m2-1)
